@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: marko
+  labels:
+    app: marko
+spec:
+  template:
+    metadata:
+      labels:
+        app: marko
+    spec:
+      containers:
+        - name: marko-container
+          image: "{{ .Values.markoImage }}"
+          ports:
+            - containerPort: 80
