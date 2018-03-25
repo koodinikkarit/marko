@@ -6,13 +6,15 @@ os:
 install:
   npm install
 
+before_script:
+  - chmod +x ./linux/*.sh
+
 script:
   - export TAG=${TRAVIS_TAG:-latest}
   - docker build -t $DOCKER_ID_USER/petri .
   - docker tag $DOCKER_ID_USER/petri $DOCKER_ID_USER/petri:$TAG
   - docker login -u $DOCKER_ID_USER -p $DOCKER_USER_PASSWORD
   - docker push $DOCKER_ID_USER/marko
-  - chmod +x ./linux/*.sh
   - ./linux/install_dependencies.sh
   - ./linux/setup_kubectl.sh
   - ./linux/helm_upgrade.sh
