@@ -3,5 +3,5 @@ sudo curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -
 sudo chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 curl https://kubernetes-helm.storage.googleapis.com/helm-v2.7.2-linux-amd64.tar.gz | tar zx
-mv linux-amd64/helm /usr/bin/
+sudo mv linux-amd64/helm /usr/bin/
 helm version --client
