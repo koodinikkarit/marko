@@ -1,4 +1,5 @@
 import gql from "graphql-tag";
+import { graphql } from "react-apollo";
 
 export const PAGE_VIEWER_QUERY = gql`
 	query getPageViewer {
@@ -12,3 +13,5 @@ export const PAGE_VIEWER_QUERY = gql`
 		}
 	}
 `;
+
+export const withPageViewer = graphql(PAGE_VIEWER_QUERY);
