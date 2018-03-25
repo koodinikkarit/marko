@@ -1,3 +1,5 @@
+sudo: enabled
+
 install:
   npm install
 
