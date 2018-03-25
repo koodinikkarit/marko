@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  "7"
+install:
+  npm install
+
+script:
+  - export TAG=${TRAVIS_TAG:-latest}
+  - docker build -t $DOCKER_ID_USER/petri .
+  - docker tag $DOCKER_ID_USER/petri $DOCKER_ID_USER/petri:$TAG 
+
+after_success:
+  - docker login -u $DOCKER_ID_USER -p $DOCKER_USER_PASSWORD
+  - docker push $DOCKER_ID_USER/petri
+  - ./linux/install_dependencies.sh
+  - ./linux/setup_kubectl.sh
+  - ./linux/install_tiller.sh
+  - ./linux/helm_upgrade.sh
