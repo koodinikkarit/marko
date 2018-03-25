@@ -8,7 +8,7 @@ script:
 
 after_success:
   - docker login -u $DOCKER_ID_USER -p $DOCKER_USER_PASSWORD
-  - docker push $DOCKER_ID_USER/petri
+  - docker push $DOCKER_ID_USER/marko
   - ./linux/install_dependencies.sh
   - ./linux/setup_kubectl.sh
   - ./linux/install_tiller.sh
