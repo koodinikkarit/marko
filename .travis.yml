@@ -15,5 +15,4 @@ script:
   - chmod +x ./linux/*.sh
   - ./linux/install_dependencies.sh
   - ./linux/setup_kubectl.sh
-  - ./linux/install_tiller.sh
   - ./linux/helm_upgrade.sh
