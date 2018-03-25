@@ -11,8 +11,8 @@ before_script:
 
 script:
   - export TAG=${TRAVIS_TAG:-latest}
-  - docker build -t $DOCKER_ID_USER/petri .
-  - docker tag $DOCKER_ID_USER/petri $DOCKER_ID_USER/petri:$TAG
+  - docker build -t $DOCKER_ID_USER/marko .
+  - docker tag $DOCKER_ID_USER/marko $DOCKER_ID_USER/marko:$TAG
   - docker login -u $DOCKER_ID_USER -p $DOCKER_USER_PASSWORD
   - docker push $DOCKER_ID_USER/marko
   - ./linux/install_dependencies.sh
