@@ -8,3 +8,4 @@ kubectl config use-context context
 kubectl config set-context context --namespace default
 
 kubectl config view
+kubectl get pods
