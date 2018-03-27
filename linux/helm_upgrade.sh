@@ -4,6 +4,8 @@ RELEASE_NAME=$(echo "$CI_COMMIT_REF_NAME" | sed 's/\./-/g')
 
 kubectl get pods
 
+helm list
+
 helm upgrade \
 	--wait \
 	--set markoImage=jaska/marko:$IMAGE_TAG \
