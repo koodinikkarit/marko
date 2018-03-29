@@ -3,10 +3,6 @@ sudo: enabled
 os:
   - linux
 
-install:
-  - echo $TRAVIS_COMMIT
-  - npm install
-
 before_script:
   - chmod +x ./linux/*.sh
 
