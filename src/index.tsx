@@ -16,19 +16,27 @@ import { createPetriClient } from "petri-client";
 const developmentEnvironment =
 	process && process.env && process.env.NODE_ENV === "development";
 
+const graphqlHost = developmentEnvironment
+	? process.env.REACT_APP_GRAPHQL_HOST
+	: window.location.host;
+
+const graphqlPort = developmentEnvironment
+	? parseInt(process.env.REACT_APP_GRAPHQL_PORT as string, 10)
+	: parseInt(window.location.port, 10);
+
+const graphqlSubscriptionsHost = developmentEnvironment
+	? process.env.REACT_APP_GRAPHQL_HOST
+	: window.location.host;
+
+const graphqlSubscriptionsPort = developmentEnvironment
+	? parseInt(process.env.REACT_APP_GRAPHQL_PORT as string, 10)
+	: parseInt(window.location.port, 10);
+
 const client = createPetriClient({
-	graphqlHost: developmentEnvironment
-		? process.env.REACT_APP_GRAPHQL_HOST
-		: window.location.host,
-	graphqlPort: developmentEnvironment
-		? parseInt(process.env.REACT_APP_GRAPHQL_PORT as string, 10)
-		: parseInt(window.location.port, 10),
-	graphqlSubscriptionsHost: developmentEnvironment
-		? process.env.REACT_APP_GRAPHQL_HOST
-		: window.location.host,
-	graphqlSubscriptionsPort: developmentEnvironment
-		? parseInt(process.env.REACT_APP_GRAPHQL_PORT as string, 10)
-		: parseInt(window.location.port, 10)
+	graphqlHost,
+	graphqlPort,
+	graphqlSubscriptionsHost,
+	graphqlSubscriptionsPort
 });
 
 ReactDOM.render(
