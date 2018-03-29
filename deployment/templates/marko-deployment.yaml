@@ -12,6 +12,6 @@ spec:
     spec:
       containers:
         - name: marko-container
-          image: jaska/marko
+          image: "{{ .Values.markoImage }}""
           ports:
             - containerPort: 80
