@@ -13,7 +13,8 @@ import "bootstrap/dist/css/bootstrap.css";
 
 import { createPetriClient } from "petri-client";
 
-const developmentEnvironment = process.env.NODE_ENV === "development";
+const developmentEnvironment =
+	process && process.env && process.env.NODE_ENV === "development";
 
 const client = createPetriClient({
 	graphqlHost: developmentEnvironment
