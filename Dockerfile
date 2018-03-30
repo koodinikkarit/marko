@@ -11,7 +11,7 @@ RUN npm install
 RUN npm run build-schema-types
 RUN npm run build
 
-FROM nginx
+FROM nginx:1.13
 COPY --from=builder /usr/src/build /usr/share/nginx/html
 ADD ./nginx.conf /etc/nginx/nginx.conf
 ADD ./default.conf /etc/nginx/conf.d/default.conf
