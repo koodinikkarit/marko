@@ -103,7 +103,8 @@ export const LoginForm = withUserLogin(
 								<Col smOffset={2} sm={10}>
 									<Button
 										type="submit"
-										onClick={() => {
+										onClick={e => {
+											e.preventDefault();
 											this.props
 												.login({
 													variables: {
