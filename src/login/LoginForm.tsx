@@ -105,26 +105,16 @@ export const LoginForm = withUserLogin(
 										type="submit"
 										onClick={e => {
 											e.preventDefault();
-											this.props
-												.login({
-													variables: {
-														username: this.state
-															.username,
-														password: this.state
-															.password,
-														rememberMe: this.state
-															.rememberMe
-													}
-												})
-												.then(res => {
-													if (
-														res.data.login.success
-													) {
-														window.location.replace(
-															"/"
-														);
-													}
-												});
+											this.props.login({
+												variables: {
+													username: this.state
+														.username,
+													password: this.state
+														.password,
+													rememberMe: this.state
+														.rememberMe
+												}
+											});
 										}}
 									>
 										Kirjaudu
